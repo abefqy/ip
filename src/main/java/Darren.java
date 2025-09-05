@@ -25,46 +25,54 @@ public class Darren {
 
         while (true) {
             String input = scanner.nextLine();
-            //exit feature
-            if (input.equals("bye")) {
-                System.out.println(line);
-                System.out.println("Goodbye! Have a nice day :)");
-                System.out.println(line);
-                break;
+            // get first word of input as command
+            String [] words = input.split(" ");
+            String command = words[0];
 
+            switch (command) {
+                case "bye":
+                    System.out.println(line);
+                    System.out.println("Goodbye! Have a nice day :)");
+                    System.out.println(line);
+                    scanner.close();
+                    return;
 
-            } else if (input.equals("list")) {
-                //list feature
+                case "list":
                 System.out.println("Here's your to-do list:");
                 System.out.println(line);
                 for (int i = 0; i < taskCount; i++) {
                     System.out.println( (i+1) + ". " + tasks[i]);
                 }
                 System.out.println(line);
+                break;
 
-
-            } else if (input.startsWith("mark")) {
-                //mark feature
-                Integer index = getInt(input);
-                if (index != null && index <= taskCount && index > 0) {
-                    tasks[index - 1].markAsDone();
+                case "mark":
+                Integer markIndex = getInt(input);
+                if (markIndex != null && markIndex <= taskCount && markIndex > 0) {
+                    tasks[markIndex - 1].markAsDone();
                     System.out.println(line);
                     System.out.println("Good work! This task has been complete:");
-                    System.out.println(tasks[index - 1]);
+                    System.out.println(tasks[markIndex - 1]);
                     System.out.println(line);
+                } else {
+                    System.out.println("Please enter a valid task number");
                 }
+                break;
 
-            } else if (input.startsWith("unmark")) {
-                //unmark feature
-                Integer index = getInt(input);
-                if (index != null && index <= taskCount && index > 0) {
-                    tasks[index - 1].markAsNotDone();
+                case "unmark":
+                Integer unmarkIndex = getInt(input);
+                if (unmarkIndex != null && unmarkIndex <= taskCount && unmarkIndex > 0) {
+                    tasks[unmarkIndex - 1].markAsNotDone();
                     System.out.println(line);
                     System.out.println("Got it, I've marked this task as incomplete");
-                    System.out.println(tasks[index - 1]);
+                    System.out.println(tasks[unmarkIndex - 1]);
                     System.out.println(line);
+                } else {
+                    System.out.println("Please enter a valid task number");
                 }
-            } else {
+                break;
+
+                default:
                 // add task feature
                 tasks[taskCount] = new Task(input);
                 taskCount++;
