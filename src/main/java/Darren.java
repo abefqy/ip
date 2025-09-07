@@ -11,6 +11,9 @@ public class Darren {
         return Integer.parseInt(words[1]);
     }
 
+    private static final int DEADLINE_COMMAND_LENGTH = "deadline ".length();
+    private static final int EVENT_COMMAND_LENGTH = "event ".length();
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -94,7 +97,7 @@ public class Darren {
                     break;
 
                 case "deadline":
-                    String removeDeadline = input.substring(9).trim();
+                    String removeDeadline = input.substring(DEADLINE_COMMAND_LENGTH).trim();
                     String[] remaining = removeDeadline.split("/by");
                     //check for successful split
                     if (remaining.length < 2) {
@@ -111,7 +114,7 @@ public class Darren {
                     break;
 
                 case "event":
-                    String removeEvent = input.substring(6).trim();
+                    String removeEvent = input.substring(EVENT_COMMAND_LENGTH).trim();
                     String[] remainingEvent = removeEvent.split("/from");
                     if (remainingEvent.length < 2) {
                         System.out.println("Please use the correct format: Event <description> /from <date/time> /to <date/time>");
