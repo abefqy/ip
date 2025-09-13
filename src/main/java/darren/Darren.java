@@ -1,3 +1,10 @@
+package darren;
+
+import darren.task.Deadline;
+import darren.task.Event;
+import darren.task.Task;
+import darren.task.Todo;
+
 import java.util.Scanner;
 
 public class Darren {
