@@ -106,21 +106,18 @@ public class Darren {
 
                     case "delete":
                         Integer deleteIndex = getInt(input);
-                        if (deleteIndex == null || deleteIndex > taskCount || deleteIndex <= 0) {
+                        if (deleteIndex == null || deleteIndex > tasks.size() || deleteIndex <= 0) {
                             throw new DarrenException("Please enter a valid task number to delete.");
                         }
 
-                        Task deletedTask = tasks[deleteIndex - 1];
+                        Task deletedTask = tasks.remove(deleteIndex - 1);
 
-                        for (int i = deleteIndex - 1; i < taskCount - 1; i++) {
-                            tasks[i] = tasks[i + 1];
-                        }
-                        taskCount--;
+                        saveTasks(storage,tasks);
 
                         System.out.println(line);
                         System.out.println("Noted. I've removed this task:");
                         System.out.println(" " + deletedTask);
-                        System.out.println("Now you have " + taskCount + " tasks in the list.");
+                        System.out.println("Now you have " + tasks.size() + " tasks in the list.");
                         System.out.println(line);
                         break;
 
