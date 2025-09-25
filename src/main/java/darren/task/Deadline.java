@@ -1,15 +1,20 @@
 package darren.task;
 
 public class Deadline extends Task {
-    protected String end;
+    public String by;
 
-    public Deadline(String description, String end) {
+    public Deadline(String description, String by) {
         super(description);
-        this.end = end;
+        this.by = by;
+    }
+
+    @Override
+    public String toStorage() {
+        return "D | " + (isDone ? "1" : "0") + " | " + description + " | " + by;
     }
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + end + ")";
+        return "[D]" + super.toString() + " (by: " + by + ")";
     }
 }
