@@ -12,4 +12,6 @@ event supper
 todo
 random
 mark number
+delete 1
+list
 bye
