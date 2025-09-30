@@ -12,6 +12,8 @@ public class Parser {
     private static final int TODO_COMMAND_LENGTH = "todo ".length();
     private static final int DEADLINE_COMMAND_LENGTH = "deadline ".length();
     private static final int EVENT_COMMAND_LENGTH = "event ".length();
+    private static final int FIND_COMMAND_LENGTH = "find ".length();
+
 
     private static Integer getInt(String input) throws DarrenException {
         String[] words = input.split(" ");
@@ -128,6 +130,17 @@ public class Parser {
                 tasks.addTask(newEvent);
                 storage.saveTasks(tasks.getTasks());
                 ui.displayAdd(newEvent, tasks);
+                break;
+
+            case "find":
+                if (input.length() <= FIND_COMMAND_LENGTH) {
+                    throw new DarrenException("You are missing a keyword!");
+                }
+                String keyword = input.substring("find ".length()).trim();
+
+                TaskList matchingTasks = tasks.findTasks(keyword);
+
+                ui.displayFind(matchingTasks);
                 break;
 
             default:

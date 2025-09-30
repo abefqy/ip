@@ -68,6 +68,20 @@ public class Ui {
         System.out.println(LINE);
     }
 
+    public void displayFind(TaskList matchingTasks) {
+        System.out.println(LINE);
+        if (matchingTasks.size() == 0) {
+            System.out.println("Sorry! No matching tasks were found in your list.");
+            return;
+        } else {
+            System.out.println("Here are the matching tasks in your list:");
+            for (int i = 0; i < matchingTasks.size(); i++) {
+                System.out.println((i + 1) + ". " + matchingTasks.get(i).toString());
+            }
+        }
+        System.out.println(LINE);
+    }
+
     public void displayBye() {
         System.out.println(LINE);
         System.out.println("Bye. Hope to see you again soon!");
