@@ -7,6 +7,10 @@ import darren.task.Todo;
 
 import java.io.IOException;
 
+/**
+ * Parses user input to determine the command and arguments
+ * Handles integration between TaskList, Ui and Storage
+ */
 public class Parser {
 
     private static final int TODO_COMMAND_LENGTH = "todo ".length();
@@ -30,7 +34,14 @@ public class Parser {
     public static boolean exit(String input) {
         return input.trim().equals("bye");
     }
-
+/**
+ * @param input The user's raw input string.
+ * @param tasks The TaskList object containing the list of tasks.
+ * @param ui The Ui object for displaying messages to the user.
+ * @param storage The Storage object for saving and loading tasks.
+ * @throws DarrenException For all user input errors
+ * @throws IOException If there is an error saving tasks to storage.
+ */
     public static void command(String input, TaskList tasks, Ui ui, Storage storage) throws DarrenException, IOException {
         input = input.trim();
 
