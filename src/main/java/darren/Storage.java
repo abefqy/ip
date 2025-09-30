@@ -27,7 +27,7 @@ public class Storage {
         fw.close();
     }
 
-    public ArrayList<Task> loadTasks() {
+    public ArrayList<Task> loadTasks() throws DarrenException {
         File f = new File(filePath);
         ArrayList<Task> tasks = new ArrayList<>();
         
