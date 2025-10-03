@@ -62,8 +62,8 @@ public class Ui {
      */
     public void displayMark(Task t) {
         System.out.println(LINE);
-        System.out.println("Good work! This task has been complete:");
-        System.out.println(t);
+        System.out.println("Good work! This task has been completed:");
+        System.out.println("    " + t);
         System.out.println(LINE);
     }
 
@@ -73,8 +73,8 @@ public class Ui {
      */
     public void displayUnmark(Task t) {
         System.out.println(LINE);
-        System.out.println("Got it, I've marked this task as incomplete");
-        System.out.println(t);
+        System.out.println("Got it! I've marked this task as incomplete:");
+        System.out.println("    " + t);
         System.out.println(LINE);
     }
 
@@ -85,7 +85,7 @@ public class Ui {
      */
     public void displayAdd(Task t, TaskList tasks) {
         System.out.println(LINE);
-        System.out.println("Got it. I've added this task:");
+        System.out.println("Got it! I've added this task:");
         System.out.println("    " + t.toString());
         System.out.println("Now you have " + tasks.size() + " tasks in the list.");
         System.out.println(LINE);
@@ -98,7 +98,7 @@ public class Ui {
      */
     public void displayDelete(Task t, TaskList tasks) {
         System.out.println(LINE);
-        System.out.println("Noted. I've removed this task:");
+        System.out.println("Noted! I've removed this task:");
         System.out.println("    " + t.toString());
         System.out.println("Now you have " + tasks.size() + " tasks in the list.");
         System.out.println(LINE);
@@ -127,7 +127,7 @@ public class Ui {
      */
     public void displayBye() {
         System.out.println(LINE);
-        System.out.println("Bye. Hope to see you again soon!");
+        System.out.println("Bye! Hope to see you again soon!");
         System.out.println(LINE);
     }
 
